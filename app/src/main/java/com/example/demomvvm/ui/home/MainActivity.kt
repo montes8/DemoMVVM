@@ -12,8 +12,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity() {
 
-
-
     private val productViewModel: ProductViewModel by viewModel(clazz = ProductViewModel::class)
 
     override fun getLayout(): Int {
@@ -21,12 +19,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setUpView() {
-
+        productViewModel.productLiveData.observe(this, Observer { product -> getProduct(product) })
 
         productViewModel.getProduct()
 
-
-        productViewModel.productLiveData.observe(this, Observer { product -> getProduct(product) })
     }
 
 

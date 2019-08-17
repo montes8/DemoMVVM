@@ -1,8 +1,8 @@
-package pe.solera.repository.preference
+package com.example.repository.preference
 
+import com.example.usecases.repository.UserRepositoryPreference
 import com.kkroco.repository.preference.manager.PreferencesManager
 import pe.solera.repository.preference.utils.PREFERENCE_TOKEN
-import pe.solera.usecases.repository.UserRepositoryPreference
 
 
 class UserPreference(private val sharedPreferenceManager: PreferencesManager) : UserRepositoryPreference {
