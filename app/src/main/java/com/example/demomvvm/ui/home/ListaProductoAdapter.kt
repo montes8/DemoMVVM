@@ -9,7 +9,7 @@ import com.example.demomvvm.R
 import com.example.entity.ProductEntity
 import kotlinx.android.synthetic.main.molde_item_product.view.*
 
-class ListaProductoAdapter  : RecyclerView.Adapter<ListaProductoAdapter.ProductoViewHolder>() {
+class ListaProductoAdapter(var onClick: ((ProductEntity) -> Unit)? = null) : RecyclerView.Adapter<ListaProductoAdapter.ProductoViewHolder>() {
 
     private var productos : List<ProductEntity>? = null
 
@@ -35,6 +35,9 @@ class ListaProductoAdapter  : RecyclerView.Adapter<ListaProductoAdapter.Producto
 
         holder.nombreProducto.text = producto.nombre
         holder.precioproducto.text = "$/ "+producto.precio.toString()
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(producto)
+        }
 
     }
 

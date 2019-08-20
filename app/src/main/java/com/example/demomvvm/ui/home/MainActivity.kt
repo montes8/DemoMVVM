@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demomvvm.R
 import com.example.demomvvm.ui.BaseActivity
 import com.example.demomvvm.ui.BaseViewModel
+import com.example.demomvvm.ui.signin.SigninActivity
 import com.example.entity.ProductEntity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,6 +32,9 @@ class MainActivity : BaseActivity() {
         my_recyclerview.layoutManager = LinearLayoutManager(this)
         my_recyclerview.adapter = productoAdapter
         productoAdapter.addList(productModel)
+        productoAdapter.onClick = {
+            startActivity(SigninActivity.newInstance(this))
+        }
 
 
     }
